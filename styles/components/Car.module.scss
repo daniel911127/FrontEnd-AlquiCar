@@ -1,0 +1,41 @@
+.container {
+  width: 400px;
+  height: 320px;
+  display: flex;
+  margin: 0.3rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 0.1rem solid black;
+  justify-content: space-around;
+  .image {
+    width: 45%;
+    height: 80%;
+    justify-content: center;
+    border-right: 0.1rem solid black;
+    margin-left: 0.7rem;
+    margin-top: 0.2rem;
+  }
+  .info {
+    margin: 0.1rem;
+    text-align: center;
+    justify-content: center;
+    margin-top: 1.4rem;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    button {
+      width: 5rem;
+      height: 2rem;
+      border: none;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      background-color: #228be6;
+      color: rgb(255, 255, 255);
+      margin: 0.2rem;
+    }
+  }
+
+  .calendar {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+}

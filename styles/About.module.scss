@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.about1 {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  p {
+    width: 1rem;
+    font-family: cursive;
+    font-size: 2rem;
+  }
+}
+.about2 {
+  margin-top: 2rem;
+  p {
+    width: 2rem;
+    height: 2rem;
+    font-family: cursive;
+    font-size: 1.5rem;
+  }
+}

@@ -1,61 +1,122 @@
 import React from 'react';
+import Head from 'next/head';
 import styles from '../styles/Register.module.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Link from 'next/link';
+import { api, port } from '../utils/AxiosCreate';
 
-export default function Login() {
+export default function Register() {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>AlquiCar-Register</title>
+      </Head>
       <Formik
-        initialValues={{ name: '', password: '' }}
+        initialValues={{
+          rol: '',
+          name: '',
+          lastname: '',
+          identification: '',
+          driverLicense: '',
+          email: '',
+          password: '',
+        }}
         validate={(values) => {
           const errors = {};
+          if (!values.rol) {
+            errors.rol = 'Required';
+          }
           if (!values.name) {
             errors.name = 'Required';
+          }
+          if (!values.lastname) {
+            errors.lastname = 'Required';
+          }
+          if (!values.identification) {
+            errors.identification = 'Required';
+          }
+          if (!values.driverLicense) {
+            errors.driverLicense = 'Required';
+          }
+          if (!values.email) {
+            errors.email = 'Required';
           } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.name)
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
           ) {
-            errors.name = 'Invalid Email';
+            errors.email = 'Invalid Email';
           }
           if (!values.password) {
             errors.password = 'Required';
           }
+
           return errors;
         }}
-        onSubmit={(values, { setSubmitting, resetForm }) => {}}
+        onSubmit={(values) => {
+          console.log(values);
+          try {
+            (async () => {
+              const res = await api.post('/user/signup', values);
+              const token = res.data.data.token;
+              localStorage.setItem('token', token);
+              localStorage.setItem('email', res.data.data.dataUser.email);
+              localStorage.setItem('name', res.data.data.dataUser.name);
+              localStorage.setItem('lastname', res.data.data.dataUser.lastname);
+              localStorage.setItem('rol', res.data.data.dataUser.rol);
+              localStorage.setItem(
+                'identification',
+                res.data.data.dataUser.identification
+              );
+              localStorage.setItem(
+                'driverLicense',
+                res.data.data.dataUser.driverLicense
+              );
+              window.location.assign(process.env.NEXT_PUBLIC_FRONTEND_URL);
+            })();
+          } catch (err) {}
+        }}
       >
         {({ isSubmitting }) => (
           <Form>
+            <div className={styles.InputRegister}>
+              <label htmlFor='rol'></label>
+              <Field
+                type='text'
+                id='rol'
+                name='rol'
+                placeholder='admin or user'
+              />
+              <ErrorMessage className='errors' name='rol' component='div' />
+            </div>
             <div className={styles.InputRegister}>
               <label htmlFor='name'></label>
               <Field type='text' id='name' name='name' placeholder='Nombre ' />
               <ErrorMessage className='errors' name='name' component='div' />
             </div>
             <div className={styles.InputRegister}>
-              <label htmlFor='lastName'></label>
+              <label htmlFor='lastname'></label>
               <Field
                 type='text'
-                id='lastName'
-                name='lastName'
+                id='lastname'
+                name='lastname'
                 placeholder='Apellido '
               />
               <ErrorMessage
                 className='errors'
-                name='lastName'
+                name='lastname'
                 component='div'
               />
             </div>
             <div className={styles.InputRegister}>
-              <label htmlFor='Identification'></label>
+              <label htmlFor='identification'></label>
               <Field
                 type='text'
-                id='Identification'
-                name='Identification'
-                placeholder='Identificación '
+                id='identification'
+                name='identification'
+                placeholder='identificación '
               />
               <ErrorMessage
                 className='errors'
-                name='Identification'
+                name='identification'
                 component='div'
               />
             </div>
@@ -74,9 +135,9 @@ export default function Login() {
               />
             </div>
             <div className={styles.InputRegister}>
-              <label htmlFor='Email'></label>
-              <Field type='text' id='Email' name='Email' placeholder='Email ' />
-              <ErrorMessage className='errors' name='Email' component='div' />
+              <label htmlFor='email'></label>
+              <Field type='text' id='email' name='email' placeholder='email ' />
+              <ErrorMessage className='errors' name='email' component='div' />
             </div>
             <div className={styles.InputRegister}>
               <label htmlFor='password'></label>
@@ -92,22 +153,15 @@ export default function Login() {
                 component='div'
               />
             </div>
-            <div className={styles.InputRegister}>
-              <label htmlFor='rol'></label>
-              <Field type='text' id='rol' name='rol' placeholder='rol' />
-              <ErrorMessage className='errors' name='rol' component='div' />
-            </div>
 
             <div>
-              <Link href='/'>
-                <button
-                  className={styles.Button}
-                  type='submit'
-                  disabled={isSubmitting}
-                >
-                  Registrar
-                </button>
-              </Link>
+              <button
+                className={styles.Button}
+                type='submit'
+                disabled={isSubmitting}
+              >
+                Registrar
+              </button>
             </div>
           </Form>
         )}
