@@ -52,7 +52,6 @@ export default function Register() {
           return errors;
         }}
         onSubmit={(values) => {
-          console.log(values);
           try {
             (async () => {
               const res = await api.post('/user/signup', values);

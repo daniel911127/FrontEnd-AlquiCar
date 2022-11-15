@@ -41,7 +41,6 @@ export default function Login() {
               localStorage.setItem('rol', res.data.data.dataUser.rol);
               window.location.assign(process.env.NEXT_PUBLIC_FRONTEND_URL);
             })();
-            console.log(token);
           } catch (err) {}
         }}
       >

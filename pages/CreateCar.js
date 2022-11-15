@@ -41,7 +41,6 @@ export default function CreateCar() {
             return errors;
           }}
           onSubmit={(values) => {
-            console.log(values);
             try {
               (async () => {
                 const res = await api.post('/car', values);
