@@ -31,7 +31,7 @@ export default function CarsList(data) {
             />
           </div>
         </div>
-        <main className={styles.list}>
+        <div className={styles.list}>
           <div className={styles.item}>
             {cars.map((item) => {
               return (
@@ -49,7 +49,7 @@ export default function CarsList(data) {
               );
             })}
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );

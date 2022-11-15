@@ -2,10 +2,11 @@
   width: 400px;
   height: 320px;
   display: flex;
-  margin: 0.3rem;
+  margin: 0.5rem;
   flex-direction: column;
   flex-wrap: wrap;
   border: 0.1rem solid black;
+  border-radius: 1rem;
   justify-content: space-around;
   .image {
     width: 45%;
@@ -21,7 +22,8 @@
     justify-content: center;
     margin-top: 1.4rem;
     font-size: 18px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     button {
       width: 5rem;
       height: 2rem;
@@ -32,10 +34,5 @@
       color: rgb(255, 255, 255);
       margin: 0.2rem;
     }
-  }
-
-  .calendar {
-    margin: 0.5rem;
-    padding: 0.5rem;
   }
 }

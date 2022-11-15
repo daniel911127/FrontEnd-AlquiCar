@@ -19,14 +19,20 @@ export default function DropdownAdmin() {
 
         <Menu.Dropdown>
           <Menu.Label>CUENTA</Menu.Label>
-          <Menu.Item component={NextLink} href='/MyData'>
+          <Menu.Item component='a' href='/MyData'>
             Mis datos
           </Menu.Item>
-          <Menu.Item component={NextLink} href='/History'>
+          <Menu.Item component='a' href='/History'>
             Historial
           </Menu.Item>
-          <Menu.Item component={NextLink} href='/CarsList'>
-            Carros
+          <Menu.Item component='a' href='/CreateCar'>
+            Crear Carro
+          </Menu.Item>
+          <Menu.Item component='a' href='/UpdateCar'>
+            Foto Carro
+          </Menu.Item>
+          <Menu.Item component='a' href='/DeleteCar'>
+            Eliminar Carro
           </Menu.Item>
           <Menu.Item>
             {' '}
