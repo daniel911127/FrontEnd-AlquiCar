@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
-import chevrolet from '../images/carrusel/chevrolet.png';
-import mazda from '../images/carrusel/mazda.jpg';
-import kia from '../images/carrusel/kia.png';
-import hyundai from '../images/carrusel/hyundai.png';
-import renault from '../images/carrusel/renault.png';
-import ford from '../images/carrusel/ford.png';
-import peugeot from '../images/carrusel/peugeot.jpg';
+import chevrolet from '../public/carrusel/chevrolet.png';
+import mazda from '../public/carrusel/mazda.jpg';
+import kia from '../public/carrusel/kia.png';
+import hyundai from '../public/carrusel/hyundai.png';
+import renault from '../public/carrusel/renault.png';
+import ford from '../public/carrusel/ford.png';
+import peugeot from '../public/carrusel/peugeot.jpg';
 import { Carousel } from '@mantine/carousel';
 
 export default function Home() {

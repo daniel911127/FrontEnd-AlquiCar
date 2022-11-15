@@ -1,0 +1,32 @@
+.container {
+  height: 700px;
+  background-image: url('../public/carrusel/imagen1.jpg');
+  display: flex;
+  align-content: center;
+
+  .title {
+    margin-top: 5rem;
+    margin-left: 30rem;
+    box-shadow: 2px 2px 3px 1px rgb(241, 238, 238);
+    border-radius: 1rem;
+    border: 0.1rem solid #151d24;
+    text-align: center;
+    align-content: center;
+    width: 350px;
+    height: 400px;
+    background-color: white;
+    h1 {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+        'Lucida Sans', Arial, sans-serif;
+      color: #050505;
+    }
+  }
+  .body {
+    margin: 0.2rem;
+    .data {
+      margin: 0.4rem;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+  }
+}
