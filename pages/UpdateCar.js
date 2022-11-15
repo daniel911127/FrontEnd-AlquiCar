@@ -4,10 +4,7 @@ import { useState } from 'react';
 export default function UpdateCar() {
   const [plate, setPlate] = useState('');
 
-  const handleChange = (event) => {
-    console.dir(event.target.files[0]);
-    console.log(plate);
-  };
+  const handleChange = (event) => {};
 
   return (
     <div>
